@@ -1,0 +1,242 @@
+[
+  {
+    "id": "evt-001",
+    "date": "2025-12-01",
+    "dayOfWeek": "월요일",
+    "time": "10:00",
+    "isAllDay": false,
+    "title": "4분기 실적 검토 및 분석 회의",
+    "department": "경영 기획팀",
+    "detail": "회의실 B-201, 김 부장 주관"
+  },
+  {
+    "id": "evt-002",
+    "date": "2025-12-02",
+    "dayOfWeek": "화요일",
+    "time": "15:00",
+    "isAllDay": false,
+    "title": "영업팀 주간 목표 회의",
+    "department": "영업 1팀",
+    "detail": "지난 주 실적 검토"
+  },
+  {
+    "id": "evt-003",
+    "date": "2025-12-03",
+    "dayOfWeek": "수요일",
+    "time": "11:30",
+    "isAllDay": false,
+    "title": "내부 IT 시스템 보안 업데이트 점검",
+    "department": "IT 기술팀",
+    "detail": "서버 팜 전체 적용"
+  },
+  {
+    "id": "evt-004",
+    "date": "2025-12-04",
+    "dayOfWeek": "목요일",
+    "time": "14:00",
+    "isAllDay": false,
+    "title": "신규 협력사 (H사) 미팅 및 계약 검토",
+    "department": "구매/법무팀",
+    "detail": "계약서 초안 확인"
+  },
+  {
+    "id": "evt-005",
+    "date": "2025-12-05",
+    "dayOfWeek": "금요일",
+    "time": "14:30",
+    "isAllDay": false,
+    "title": "신제품 '프로젝트 A' 최종 디자인 확정",
+    "department": "디자인/개발팀",
+    "detail": "마케팅 자료 반영"
+  },
+  {
+    "id": "evt-006",
+    "date": "2025-12-06",
+    "dayOfWeek": "토요일",
+    "time": "9:00",
+    "isAllDay": false,
+    "title": "늦잠자기",
+    "department": "나",
+    "detail": ""
+  },
+  {
+    "id": "evt-007",
+    "date": "2025-12-08",
+    "dayOfWeek": "월요일",
+    "time": "10:00",
+    "isAllDay": false,
+    "title": "마케팅 채널별 성과 분석 회의",
+    "department": "마케팅팀",
+    "detail": "A/B 테스트 결과 공유"
+  },
+  {
+    "id": "evt-008",
+    "date": "2025-12-09",
+    "dayOfWeek": "화요일",
+    "time": "16:30",
+    "isAllDay": false,
+    "title": "월간 신입사원 교육 프로그램 기획",
+    "department": "인사 총무팀",
+    "detail": "2026년 1월 시작 목표"
+  },
+  {
+    "id": "evt-009",
+    "date": "2025-12-10",
+    "dayOfWeek": "수요일",
+    "time": "9:00",
+    "isAllDay": false,
+    "title": "외부 감사팀과의 회계 자료 제출",
+    "department": "재무 회계팀",
+    "detail": "1차 자료 검토 완료 (일정 변경)"
+  },
+  {
+    "id": "evt-010",
+    "date": "2025-12-11",
+    "dayOfWeek": "목요일",
+    "time": "13:00",
+    "isAllDay": false,
+    "title": "사내 윤리 강령 교육 및 서약",
+    "department": "인사 총무팀",
+    "detail": "전 직원 필수 참여"
+  },
+  {
+    "id": "evt-011",
+    "date": "2025-12-12",
+    "dayOfWeek": "금요일",
+    "time": "15:00",
+    "isAllDay": false,
+    "title": "연구 개발(R&D) 중간 보고서 작성 및 검토",
+    "department": "개발팀",
+    "detail": "이사급 검토 자료 준비"
+  },
+  {
+    "id": "evt-012",
+    "date": "2025-12-15",
+    "dayOfWeek": "월요일",
+    "time": "16:00",
+    "isAllDay": false,
+    "title": "2026년도 사업 계획 발표 준비 (부서별 최종 취합)",
+    "department": "전 부서",
+    "detail": "발표 자료 디자인 점검"
+  },
+  {
+    "id": "evt-013",
+    "date": "2025-12-16",
+    "dayOfWeek": "화요일",
+    "time": "10:00",
+    "isAllDay": false,
+    "title": "2026년 인사 평가 기준 재정립 회의",
+    "department": "인사 총무팀",
+    "detail": "평가 항목 조정 논의"
+  },
+  {
+    "id": "evt-014",
+    "date": "2025-12-17",
+    "dayOfWeek": "수요일",
+    "time": "14:00",
+    "isAllDay": false,
+    "title": "주요 고객사 대상 연말 감사 메일 발송 준비",
+    "department": "영업/마케팅팀",
+    "detail": "개인화 메시지 작성 완료"
+  },
+  {
+    "id": "evt-015",
+    "date": "2025-12-18",
+    "dayOfWeek": "목요일",
+    "time": "11:00",
+    "isAllDay": false,
+    "title": "물류 시스템 효율화 방안 킥오프 미팅",
+    "department": "생산/물류팀",
+    "detail": "외부 컨설팅 업체 참석"
+  },
+  {
+    "id": "evt-016",
+    "date": "2025-12-19",
+    "dayOfWeek": "금요일",
+    "time": "18:00",
+    "isAllDay": false,
+    "title": "골든래빗 연말 임직원 만찬",
+    "department": "인사 총무팀",
+    "detail": "장소: 시청 근처 홀"
+  },
+  {
+    "id": "evt-017",
+    "date": "2025-12-22",
+    "dayOfWeek": "월요일",
+    "time": "10:30",
+    "isAllDay": false,
+    "title": "프로젝트 B' 초기 시장 조사 결과 브리핑",
+    "department": "마케팅팀",
+    "detail": "시장 반응 긍정적"
+  },
+  {
+    "id": "evt-018",
+    "date": "2025-12-23",
+    "dayOfWeek": "화요일",
+    "time": "15:00",
+    "isAllDay": false,
+    "title": "연말 재고 실사 및 정리",
+    "department": "생산/재고팀",
+    "detail": "내년도 창고 공간 확보"
+  },
+  {
+    "id": "evt-019",
+    "date": "2025-12-24",
+    "dayOfWeek": "수요일",
+    "time": "11:00",
+    "isAllDay": false,
+    "title": "해외 파트너사와의 온라인 화상 회의",
+    "department": "해외 사업팀",
+    "detail": "아시아 지역 협력 논의"
+  },
+  {
+    "id": "evt-020",
+    "date": "2025-12-25",
+    "dayOfWeek": "목요일",
+    "time": "종일",
+    "isAllDay": true,
+    "title": "크리스마스 (법정 공휴일)",
+    "department": "-",
+    "detail": "전사 휴무"
+  },
+  {
+    "id": "evt-021",
+    "date": "2025-12-26",
+    "dayOfWeek": "금요일",
+    "time": "14:00",
+    "isAllDay": false,
+    "title": "비상 상황 대비 매뉴얼 업데이트 교육",
+    "department": "인사 총무팀",
+    "detail": "안전 관리 팀 주관"
+  },
+  {
+    "id": "evt-022",
+    "date": "2025-12-29",
+    "dayOfWeek": "월요일",
+    "time": "14:00",
+    "isAllDay": false,
+    "title": "2026년 예산 최종 조정 및 승인",
+    "department": "경영 기획팀",
+    "detail": "CEO 최종 결재 대기"
+  },
+  {
+    "id": "evt-023",
+    "date": "2025-12-30",
+    "dayOfWeek": "화요일",
+    "time": "종일",
+    "isAllDay": true,
+    "title": "연말 대청소 및 보안 점검",
+    "department": "전 부서",
+    "detail": "부서별 책임 구역 지정"
+  },
+  {
+    "id": "evt-024",
+    "date": "2025-12-31",
+    "dayOfWeek": "수요일",
+    "time": "16:00",
+    "isAllDay": false,
+    "title": "종무식 및 연간 성과 보고",
+    "department": "인사 총무팀",
+    "detail": "간소화 진행, 17시 업무 마감"
+  }
+]
