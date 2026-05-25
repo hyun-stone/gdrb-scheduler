@@ -7,6 +7,7 @@ export type ScheduleEvent = {
   isAllDay: boolean
   title: string
   department: string
+  completed?: boolean
   detail?: string
   note?: string
 }

@@ -11,7 +11,7 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { formatWeekRange } from "@/lib/schedule-utils"
+import { formatWeekRange, getScheduleMonthLabel } from "@/lib/schedule-utils"
 import type { ScheduleView } from "@/lib/types/schedule"
 
 type ViewToolbarProps = {
@@ -39,7 +39,7 @@ export function ViewToolbar({
 }: ViewToolbarProps) {
   const navLabel =
     view === "month"
-      ? "2025년 12월"
+      ? getScheduleMonthLabel(selectedDate)
       : view === "week"
         ? formatWeekRange(selectedDate)
         : selectedDate

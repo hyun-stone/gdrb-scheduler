@@ -37,7 +37,7 @@ export function MonthCalendar({
   onSelectDate,
   onViewListForDate,
 }: MonthCalendarProps) {
-  const monthStart = startOfMonth(parseISO("2025-12-01"))
+  const monthStart = startOfMonth(parseISO(selectedDate))
   const monthEnd = endOfMonth(monthStart)
 
   const calendarDays = useMemo(() => {
@@ -45,7 +45,7 @@ export function MonthCalendar({
     const startPad = (monthStart.getDay() + 6) % 7
     const paddedStart = Array.from({ length: startPad }, (_, i) => null)
     return [...paddedStart, ...days]
-  }, [monthStart, monthEnd])
+  }, [selectedDate, monthStart, monthEnd])
 
   return (
     <div className="overflow-hidden rounded-xl border bg-card">

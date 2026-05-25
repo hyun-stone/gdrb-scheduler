@@ -9,8 +9,8 @@ import { Separator } from "@/components/ui/separator"
 import {
   formatDisplayDate,
   groupByDate,
+  isToday,
   sortEvents,
-  DEMO_TODAY,
 } from "@/lib/schedule-utils"
 import type { ScheduleEvent } from "@/lib/types/schedule"
 import { cn } from "@/lib/utils"
@@ -46,7 +46,7 @@ export function ListAgenda({ events, selectedDate, onSelectDate }: ListAgendaPro
     <div className="space-y-6">
       {dates.map((date) => {
         const dayEvents = grouped[date] ?? []
-        const today = date === DEMO_TODAY
+        const today = isToday(date)
 
         return (
           <section

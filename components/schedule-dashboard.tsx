@@ -3,7 +3,7 @@
 import { Suspense } from "react"
 import { format, parseISO } from "date-fns"
 import { ko } from "date-fns/locale"
-import { RabbitIcon } from "@phosphor-icons/react"
+import { ArrowClockwiseIcon, RabbitIcon } from "@phosphor-icons/react"
 
 import { ScheduleFilters } from "@/components/schedule-filters"
 import { UpcomingEvents } from "@/components/upcoming-events"
@@ -12,16 +12,31 @@ import { DepartmentBoard } from "@/components/views/department-board"
 import { ListAgenda } from "@/components/views/list-agenda"
 import { MonthCalendar } from "@/components/views/month-calendar"
 import { WeekTimeline } from "@/components/views/week-timeline"
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { useScheduleFilters } from "@/hooks/use-schedule-filters"
+import { useScheduleSync } from "@/hooks/use-schedule-sync"
+import { getScheduleMonthLabel } from "@/lib/schedule-utils"
 import type { ScheduleEvent } from "@/lib/types/schedule"
 
 type ScheduleDashboardProps = {
-  events: ScheduleEvent[]
-  defaultDate?: string
+  initialEvents: ScheduleEvent[]
+  initialFetchedAt: string
+  defaultDate: string
+  monthLabel: string
 }
 
-function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProps) {
+function ScheduleDashboardContent({
+  initialEvents,
+  initialFetchedAt,
+  defaultDate,
+  monthLabel,
+}: ScheduleDashboardProps) {
+  const { events, fetchedAt, isRefreshing, error, refresh } = useScheduleSync(
+    initialEvents,
+    initialFetchedAt
+  )
+
   const {
     selectedDate,
     view,
@@ -64,6 +79,10 @@ function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProp
     locale: ko,
   })
 
+  const syncedLabel = fetchedAt
+    ? format(new Date(fetchedAt), "HH:mm:ss")
+    : "-"
+
   return (
     <div className="min-h-svh bg-background">
       {/* Header */}
@@ -75,21 +94,34 @@ function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProp
             </div>
             <div>
               <h1 className="text-lg font-semibold tracking-tight">
-                골든래빗 12월 일정
+                골든래빗 {monthLabel} 일정
               </h1>
               <p className="text-xs text-muted-foreground">{displayDate}</p>
             </div>
           </div>
 
-          <ScheduleFilters
-            events={events}
-            searchQuery={searchQuery}
-            departments={departments}
-            onSearchChange={setSearchQuery}
-            onToggleDepartment={toggleDepartment}
-            onClearDepartments={() => setDepartments([])}
-            compact
-          />
+          <div className="flex items-center gap-2">
+            <ScheduleFilters
+              events={events}
+              searchQuery={searchQuery}
+              departments={departments}
+              onSearchChange={setSearchQuery}
+              onToggleDepartment={toggleDepartment}
+              onClearDepartments={() => setDepartments([])}
+              compact
+            />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => refresh()}
+              disabled={isRefreshing}
+            >
+              <ArrowClockwiseIcon
+                className={`size-4 ${isRefreshing ? "animate-spin" : ""}`}
+              />
+              <span className="hidden sm:inline">새로고침</span>
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -107,7 +139,7 @@ function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProp
           <Separator className="my-4" />
           <UpcomingEvents
             events={filteredEvents}
-            selectedDate={defaultDate ?? selectedDate}
+            selectedDate={defaultDate}
             onSelectDate={setSelectedDate}
           />
         </aside>
@@ -121,6 +153,12 @@ function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProp
             onPrev={handlePrev}
             onNext={handleNext}
           />
+
+          {error && (
+            <p className="rounded-lg border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+              {error}
+            </p>
+          )}
 
           <div className="rounded-xl border bg-card p-4">
             {view === "month" && (
@@ -157,6 +195,9 @@ function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProp
             총 {filteredEvents.length}건 표시
             {filteredEvents.length !== events.length &&
               ` (전체 ${events.length}건)`}
+            {" · "}
+            마지막 동기화 {syncedLabel}
+            {isRefreshing && " (갱신 중...)"}
           </p>
         </main>
       </div>
@@ -164,8 +205,7 @@ function ScheduleDashboardContent({ events, defaultDate }: ScheduleDashboardProp
   )
 }
 
-// Suspense boundary for useSearchParams
-export function ScheduleDashboard({ events, defaultDate }: ScheduleDashboardProps) {
+export function ScheduleDashboard(props: ScheduleDashboardProps) {
   return (
     <Suspense
       fallback={
@@ -174,7 +214,7 @@ export function ScheduleDashboard({ events, defaultDate }: ScheduleDashboardProp
         </div>
       }
     >
-      <ScheduleDashboardContent events={events} defaultDate={defaultDate} />
+      <ScheduleDashboardContent {...props} />
     </Suspense>
   )
 }

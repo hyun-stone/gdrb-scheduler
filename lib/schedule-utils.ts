@@ -165,11 +165,20 @@ export function formatWeekRange(dateStr: string): string {
   return `${format(weekStart, "M/d")} – ${format(weekEnd, "M/d")}`
 }
 
-// 데모용 "오늘" 기준일 (12월 중순)
-export const DEMO_TODAY = "2025-12-15"
+// 실제 오늘 날짜 기준
+export function isToday(dateStr: string): boolean {
+  return isSameDay(parseISO(dateStr), new Date())
+}
 
-export function isToday(dateStr: string, referenceDate = DEMO_TODAY): boolean {
-  return isSameDay(parseISO(dateStr), parseISO(referenceDate))
+export function getDefaultSelectedDate(events: ScheduleEvent[]): string {
+  const today = format(new Date(), "yyyy-MM-dd")
+  if (events.some((event) => event.date === today)) return today
+  if (events.length === 0) return today
+  return sortEvents(events)[0].date
+}
+
+export function getScheduleMonthLabel(dateStr: string): string {
+  return format(parseISO(dateStr), "yyyy년 M월", { locale: ko })
 }
 
 export const TIMELINE_START_HOUR = 8

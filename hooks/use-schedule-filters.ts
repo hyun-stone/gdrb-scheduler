@@ -5,9 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { addDays, addWeeks, format, parseISO, subWeeks } from "date-fns"
 
 import type { ScheduleEvent, ScheduleView } from "@/lib/types/schedule"
-import { filterEvents } from "@/lib/schedule-utils"
+import { filterEvents, getDefaultSelectedDate } from "@/lib/schedule-utils"
 
-const DEFAULT_DATE = "2025-12-01"
 const DEFAULT_VIEW: ScheduleView = "list"
 
 const VALID_VIEWS: ScheduleView[] = ["month", "week", "list", "dept"]
@@ -22,8 +21,9 @@ function parseView(value: string | null): ScheduleView {
 export function useScheduleFilters(events: ScheduleEvent[]) {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const fallbackDate = getDefaultSelectedDate(events)
 
-  const selectedDate = searchParams.get("date") ?? DEFAULT_DATE
+  const selectedDate = searchParams.get("date") ?? fallbackDate
   const view = parseView(searchParams.get("view"))
   const searchQuery = searchParams.get("q") ?? ""
   const departments = useMemo(() => {
